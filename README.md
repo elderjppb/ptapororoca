@@ -1,102 +1,131 @@
-# 📘 README.md — Projeto Portal da Prefeitura de Itapororoca
+# 📘 README.md — Portal da Prefeitura de Itapororoca
 
 ## 📍 Sobre o Projeto
 
-Este projeto consiste no desenvolvimento do portal institucional da Prefeitura Municipal de Itapororoca, com o objetivo de disponibilizar informações públicas, serviços ao cidadão e garantir transparência na gestão municipal.
+Este projeto é um site institucional desenvolvido para a Prefeitura Municipal de Itapororoca, com foco em transparência, informação pública e comunicação com os cidadãos.
 
-O sistema reúne conteúdos institucionais, dados administrativos e ferramentas de acesso público em um único ambiente digital.
+A interface é responsiva e construída com Bootstrap, oferecendo uma navegação simples e acessível.
 
-## 🎯 Funcionalidades
+## Arquitetura do Sistema
 
-* 📖 **História de Itapororoca**
+<p align="center">
+  <img src="arqu.jpeg" alt="Arquitetura do Sistema" width="700"/>
+</p>
 
-  * Seção dedicada à história do município.
+## 🎯 Estrutura do Site
 
+O site é dividido nas seguintes seções:
 
-* 🏛️ **Sobre a Prefeitura**
+### 🏠 Navbar (Menu de Navegação)
 
-  * Informações institucionais da gestão municipal.
+* Links para:
 
+  * Nossa História
+  * A Prefeitura
+  * Leis Municipais
+  * Notícias
+  * Contato
 
-* 📜 **Leis Municipais**
+### 🌄 Hero (Página Inicial)
 
-  * Consulta à legislação vigente.
+* Mensagem de boas-vindas
+* Destaque institucional:
 
+  > “Transparência, desenvolvimento e compromisso com o cidadão.”
 
-* 📰 **Notícias**
+### 📖 História de Itapororoca
 
-  * Atualizações e comunicados oficiais.
+* Espaço para conteúdo histórico do município
+* Área reservada para imagem ilustrativa
 
+### 🏛️ A Prefeitura
+
+* Informações institucionais
+* Endereço e horário de atendimento
+* Espaço para imagem da prefeitura ou gestão
+
+### 📜 Leis Municipais e Transparência
+
+* Botão de acesso para documentos públicos
+* Área dedicada à transparência administrativa
+
+### 📰 Notícias
+
+* Cards com:
+
+  * Imagem
+  * Título
+  * Resumo
+  * Botão “Leia mais”
+
+### 📩 Contato
+
+* Formulário com:
+
+  * Nome
+  * E-mail
+  * Mensagem
+* Preparado para integração com backend
+
+### ⚫ Rodapé (Footer)
+
+* Direitos autorais
+* Créditos de desenvolvimento
 
 ## 🛠️ Tecnologias Utilizadas
 
 * HTML5
-* CSS3
-* JavaScript
-* (Opcional) Frameworks como Bootstrap ou React
-* (Opcional) Backend: Node.js / PHP / Python
-* Banco de Dados: MySQL / PostgreSQL
+* CSS3 (arquivo `style.css`)
+* Bootstrap 5.3
+* JavaScript (Bootstrap Bundle)
 
-## 🚀 Como Executar o Projeto
+CDNs utilizados:
 
-1. Clone este repositório:
+* Bootstrap CSS
+* Bootstrap JS
 
-```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-```
+## 🚀 Como Executar
 
-2. Acesse a pasta do projeto:
+1. Salve o arquivo como `index.html`
+2. Crie um arquivo `style.css` na mesma pasta
+3. Abra o arquivo no navegador
 
-```bash
-cd seu-repositorio
-```
+## 📂 Estrutura de Arquivos
 
-3. Abra o arquivo `index.html` no navegador
-   ou execute com um servidor local (ex: Live Server).
-
-## 📂 Estrutura do Projeto
-
-/projeto
+```id="g2k91x"
+/projeto-itapororoca
 │── index.html
-│── /css
-│── /js
-│── /images
-│── /pages
-│── README.md
+│── style.css
+│── /images (opcional)
+```
 
-## 🔐 Acesso Restrito
+## 🎨 Personalização
 
-Algumas funcionalidades (como contracheques) exigem autenticação.
-Garanta a implementação de segurança adequada:
+Você pode customizar:
 
-* Criptografia de dados
-* Autenticação de usuários
-* Proteção contra ataques (XSS, CSRF, etc.)
+* Imagens (`image-placeholder`)
+* Cores no `style.css`
+* Conteúdo das seções
+* Links reais (ex: portal da transparência)
+
+## 🔐 Melhorias Futuras
+
+* Integração com backend (PHP, Node.js ou Python)
+* Sistema de login (contracheques)
+* CMS para notícias
+* Banco de dados (MySQL/PostgreSQL)
+* API de transparência pública
 
 ## 📢 Objetivo
 
-Promover transparência pública, facilitar o acesso à informação e melhorar a comunicação entre a prefeitura e os cidadãos.
+Facilitar o acesso à informação pública e fortalecer a transparência da gestão municipal de Itapororoca.
 
-## 🤝 Contribuição
+## 👨‍💻 Autores
 
-Contribuições são bem-vindas!
+* Elder
+* Nathyanne
 
-1. Faça um fork do projeto
-2. Crie uma branch:
+## 📄 Licença
 
-```bash
-git checkout -b minha-feature
-```
-
-3. Commit suas alterações
-4. Envie um pull request
-
-## 📞 Contato
-
-Prefeitura Municipal de Itapororoca
-Paraíba - Brasil
-
-## FORMULARIO
-
-PERGUNTAS
+Projeto de uso institucional e educacional.
 
