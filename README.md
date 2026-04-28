@@ -1,131 +1,57 @@
-# 📘 README.md — Portal da Prefeitura de Itapororoca
+# 🏛️ Portal e CMS - Prefeitura de Itapororoca
 
 ## 📍 Sobre o Projeto
+Este projeto é um portal institucional e um Sistema de Gestão de Conteúdo (CMS) desenvolvido para a Prefeitura Municipal de Itapororoca. O objetivo é fornecer uma plataforma pública de transparência e notícias para os cidadãos, juntamente com um painel administrativo para a gestão dinâmica do conteúdo.
 
-Este projeto é um site institucional desenvolvido para a Prefeitura Municipal de Itapororoca, com foco em transparência, informação pública e comunicação com os cidadãos.
+## 🏗️ Arquitetura do Sistema
 
-A interface é responsiva e construída com Bootstrap, oferecendo uma navegação simples e acessível.
+O sistema é construído sobre uma arquitetura **API RESTful**, separando completamente as responsabilidades do cliente (Frontend) e do servidor (Backend). A comunicação entre as pontas é feita exclusivamente via **JSON**.
 
-## Arquitetura do Sistema
+```mermaid
+graph TD
+    subgraph Frontend ["Frontend (React)"]
+        Publico("🌐 Portal Público (Leitura)")
+        Admin("🔒 Painel Admin (Gestão)")
+    end
 
-<p align="center">
-  <img src="arqu.jpeg" alt="Arquitetura do Sistema" width="700"/>
-</p>
+    subgraph API ["Backend API (PHP)"]
+        Controller["🚦 Controller (Rotas e HTTP)"]
+        Service["⚙️ Service (Regras de Negócio)"]
+        Model["🗃️ Model (Acesso a Dados)"]
+    end
 
-## 🎯 Estrutura do Site
+    Database[("🐘 MariaDB")]
 
-O site é dividido nas seguintes seções:
-
-### 🏠 Navbar (Menu de Navegação)
-
-* Links para:
-
-  * Nossa História
-  * A Prefeitura
-  * Leis Municipais
-  * Notícias
-  * Contato
-
-### 🌄 Hero (Página Inicial)
-
-* Mensagem de boas-vindas
-* Destaque institucional:
-
-  > “Transparência, desenvolvimento e compromisso com o cidadão.”
-
-### 📖 História de Itapororoca
-
-* Espaço para conteúdo histórico do município
-* Área reservada para imagem ilustrativa
-
-### 🏛️ A Prefeitura
-
-* Informações institucionais
-* Endereço e horário de atendimento
-* Espaço para imagem da prefeitura ou gestão
-
-### 📜 Leis Municipais e Transparência
-
-* Botão de acesso para documentos públicos
-* Área dedicada à transparência administrativa
-
-### 📰 Notícias
-
-* Cards com:
-
-  * Imagem
-  * Título
-  * Resumo
-  * Botão “Leia mais”
-
-### 📩 Contato
-
-* Formulário com:
-
-  * Nome
-  * E-mail
-  * Mensagem
-* Preparado para integração com backend
-
-### ⚫ Rodapé (Footer)
-
-* Direitos autorais
-* Créditos de desenvolvimento
-
-## 🛠️ Tecnologias Utilizadas
-
-* HTML5
-* CSS3 (arquivo `style.css`)
-* Bootstrap 5.3
-* JavaScript (Bootstrap Bundle)
-
-CDNs utilizados:
-
-* Bootstrap CSS
-* Bootstrap JS
-
-## 🚀 Como Executar
-
-1. Salve o arquivo como `index.html`
-2. Crie um arquivo `style.css` na mesma pasta
-3. Abra o arquivo no navegador
-
-## 📂 Estrutura de Arquivos
-
-```id="g2k91x"
-/projeto-itapororoca
-│── index.html
-│── style.css
-│── /images (opcional)
+    %% Comunicações
+    Publico -- "GET (JSON)" --> Controller
+    Admin -- "POST, PUT, DELETE (JSON)" --> Controller
+    Controller <--> Service
+    Service <--> Model
+    Model <--> Database
 ```
 
-## 🎨 Personalização
+### 🔄 Fluxo de Requisições e Camadas:
+1. **Frontend (React):** Realiza chamadas HTTP assíncronas (Axios/Fetch). O Portal Público consome dados (GET), enquanto o Admin envia mutações (POST para criar, PUT para editar, DELETE para excluir).
+2. **API PHP (Controller):** Intercepta a requisição, realiza a validação de autenticação (ex: JWT no Painel Admin) e roteia os dados recebidos.
+3. **API PHP (Service):** Processa as regras de negócio, como validação de formulários, tratamento de uploads de imagens e formatação de textos.
+4. **API PHP (Model):** Executa as operações de CRUD diretamente no banco de dados.
+5. **MariaDB:** Banco de dados relacional que armazena usuários, postagens, leis e configurações do portal.
 
-Você pode customizar:
+## 🛠️ Stack Tecnológica
 
-* Imagens (`image-placeholder`)
-* Cores no `style.css`
-* Conteúdo das seções
-* Links reais (ex: portal da transparência)
+* **Frontend:** React.js, HTML5, CSS3, Bootstrap 5 (Estilização base).
+* **Backend:** PHP (API RESTful).
+* **Banco de Dados:** MariaDB.
+* **Comunicação:** Formato JSON.
 
-## 🔐 Melhorias Futuras
+## 📌 Status do Projeto
 
-* Integração com backend (PHP, Node.js ou Python)
-* Sistema de login (contracheques)
-* CMS para notícias
-* Banco de dados (MySQL/PostgreSQL)
-* API de transparência pública
-
-## 📢 Objetivo
-
-Facilitar o acesso à informação pública e fortalecer a transparência da gestão municipal de Itapororoca.
+* [x] Prototipação das telas em HTML/CSS estático.
+* [ ] Desenvolvimento da API Rest em PHP.
+* [ ] Modelagem do banco de dados (MariaDB).
+* [ ] Integração do Frontend (React) com a API.
+* [ ] Construção do Painel Administrativo.
 
 ## 👨‍💻 Autores
-
 * Elder
 * Nathyanne
-
-## 📄 Licença
-
-Projeto de uso institucional e educacional.
-
