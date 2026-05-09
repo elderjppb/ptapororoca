@@ -1,9 +1,7 @@
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     scroll-behavior: smooth;
 }
-
 
 .image-placeholder {
     background-color: #cbd5e1;
@@ -18,8 +16,7 @@ body {
 
 .hero {
     min-height: 60vh;
-    background-color: #3b82f6;
-
+    background-color: #198754; 
 }
 
 .hero .container {
