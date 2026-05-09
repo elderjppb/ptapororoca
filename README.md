@@ -1,59 +1,54 @@
-# 🏛️ Portal e CMS - Prefeitura de Itapororoca
+# Portal - Prefeitura Municipal de Itapororoca
 
-## 📍 Sobre o Projeto
-Este projeto é um portal institucional e um Sistema de Gestão de Conteúdo (CMS) desenvolvido para a Prefeitura Municipal de Itapororoca. O objetivo é fornecer uma plataforma pública de transparência e notícias para os cidadãos, juntamente com um painel administrativo para a gestão dinâmica do conteúdo.
+## Sobre o Projeto
+Este projeto é o portal institucional oficial desenvolvido para a Prefeitura Municipal de Itapororoca. O objetivo principal é fornecer uma plataforma pública, rápida e acessível para garantir a transparência da gestão, informar os cidadãos com notícias locais e facilitar o contato com a administração.
 
-## 🏗️ Arquitetura do Sistema
+O desenvolvimento foi focado em performance e acessibilidade, utilizando uma arquitetura de site estático.
 
-O sistema é construído sobre uma arquitetura **API RESTful**, separando completamente as responsabilidades do cliente (Frontend) e do servidor (Backend). A comunicação entre as pontas é feita exclusivamente via **JSON**.
+## Tecnologias e Stack
 
-```mermaid
-graph TD
-    subgraph Frontend ["Frontend (React)"]
-        Publico("🌐 Portal Público (Leitura)")
-        Admin("🔒 Painel Admin (Gestão)")
-    end
+O projeto utiliza uma stack front-end pura e otimizada:
+* **HTML5:** Estrutura semântica das páginas.
+* **CSS3:** Estilizações customizadas.
+* **Bootstrap 5.3:** Framework CSS para componentes responsivos (via CDN).
+* **JavaScript (Vanilla):** Comportamentos de interface fornecidos pelo Bootstrap Bundle.
 
-    subgraph API ["Backend API (PHP)"]
-        Controller["🚦 Controller (Rotas e HTTP)"]
-        Service["⚙️ Service (Regras de Negócio)"]
-        Model["🗃️ Model (Acesso a Dados)"]
-    end
+## Padrão de Arquitetura (Estrutura de Arquivos)
 
-    Database[("🐘 MariaDB")]
+O projeto segue um design pattern de separação de responsabilidades para sites estáticos, mantendo assets e páginas em diretórios isolados:
 
-    %% Comunicações
-    Publico -- "GET (JSON)" --> Controller
-    Admin -- "POST, PUT, DELETE (JSON)" --> Controller
-    Controller <--> Service
-    Service <--> Model
-    Model <--> Database
+```text
+/projeto-itapororoca
+│── index.html              # Landing Page principal (Hero, História, Prefeitura)
+│── README.md               # Documentação do projeto
+│── /pages                  # Páginas internas do portal
+│   └── noticia.html        # Template para leitura de notícias completas
+│── /assets                 # Arquivos estáticos globais
+│   ├── /css
+│   │   └── style.css       # Regras de estilo customizadas
+│   └── /img                # Mídias e imagens do município
 ```
 
-### 🔄 Fluxo de Requisições e Camadas:
-1. **Frontend (React):** Realiza chamadas HTTP assíncronas (Axios/Fetch). O Portal Público consome dados (GET), enquanto o Admin envia mutações (POST para criar, PUT para editar, DELETE para excluir).
-2. **API PHP (Controller):** Intercepta a requisição, realiza a validação de autenticação (ex: JWT no Painel Admin) e roteia os dados recebidos.
-3. **API PHP (Service):** Processa as regras de negócio, como validação de formulários, tratamento de uploads de imagens e formatação de textos.
-4. **API PHP (Model):** Executa as operações de CRUD diretamente no banco de dados.
-5. **MariaDB:** Banco de dados relacional que armazena usuários, postagens, leis e configurações do portal.
+## Integração Contínua e Deploy (CI/CD)
 
-## 🛠️ Stack Tecnológica
+O portal conta com um pipeline de **CI/CD** automatizado.
 
-* **Frontend:** React.js, HTML5, CSS3, Bootstrap 5 (Estilização base).
-* **Backend:** PHP (API RESTful).
-* **Banco de Dados:** MariaDB.
-* **Comunicação:** Formato JSON.
+1. **Repositório:** O código-fonte é versionado no **GitHub**.
+2. **Deploy Automático:** O repositório está conectado à **Vercel**.
+3. **Fluxo:** Qualquer novo `push` ou aprovação de `Pull Request` na branch `main` dispara automaticamente um novo build na Vercel. Em poucos segundos, as alterações entram no ar sem necessidade de intervenção manual nos servidores.
 
-## 📌 Status do Projeto
+## Funcionalidades Presentes
 
-* [x] Prototipação das telas em HTML/CSS estático.
-* [ ] Desenvolvimento da API Rest em PHP.
-* [ ] Modelagem do banco de dados (MariaDB).
-* [ ] Integração do Frontend (React) com a API.
-* [ ] Construção do Painel Administrativo.
+* **Design Responsivo:** Adaptável a celulares, tablets e desktops.
+* **Navegação Âncora (Smooth Scroll):** Menu principal linkado com as seções da página.
+* **Seção Histórica:** Resumo sobre a fundação de Itapororoca (Vila São João, rota dos tropeiros).
+* **Transparência:** Espaço reservado para atalhos de leis municipais e portal da transparência.
+* **Cards de Notícias:** Layout preparado para expansão e leitura em páginas internas.
+* **Formulário de Contato:** Interface pronta para futura integração com serviços de envio (ex: Formspree).
 
-## 👨‍💻 Autores
+## Autores
 * Elder
-* Nathyanne
+* Nathyane
 
-2026
+## Licença
+Projeto desenvolvido para fins institucionais/educacionais referente à gestão municipal de Itapororoca - PB (2026).
